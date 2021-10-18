@@ -1,0 +1,27 @@
+[
+    {
+        "seller": "610a0278f92a0f59a5852389",
+        "client": "610a0278f92a0f59a585238a",
+        "items": "610a035bf92a0f59a5852398",
+        "total": 210979,
+        "payment": "tarjeta",
+        "status": "pagada",
+        "shop": "610a02f4f92a0f59a5852391",
+        "createdAt": "2021-07-25T10:32:00.000Z",
+        "updatedAt": "2021-07-25T10:57:04.000Z"
+        
+    },
+    {
+        "seller": "610a0278f92a0f59a5852388",
+        "client": "610a0278f92a0f59a585238a",
+        "items": "610a035bf92a0f59a5852399",
+        "total": 123996,
+        "payment": "efectivo",
+        "status": "pendiente",
+        "shop": "610a02f4f92a0f59a5852391",
+        "createdAt": "2021-07-25T10:32:00.000Z",
+        "updatedAt": "2021-07-25T10:37:00.000Z"    
+    }
+
+
+]

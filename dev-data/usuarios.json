@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Test Admin",
+        "email": "admin@fashionx.com",
+        "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS",
+        "role": "admin",
+        "ID": 1,
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    },
+    {
+        "name": "Test Cajero",
+        "email": "cajero@fashionx.com",
+        "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS",
+        "phone": 1234526729,
+        "ID": 1017222881,
+        "role": "cajero",
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    },
+    {
+        "name": "Test Vendedor",
+        "email": "vendedor@fashionx.com",
+        "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS",
+        "role": "vendedor",
+        "phone": 35636536363,
+        "ID": 22836738,
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    },
+    {
+        "name": "Test Cliente",
+        "email": "cliente@fashionx.com",
+        "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS",
+        "role": "cliente",
+        "phone": 31053563677,
+        "ID": 67436784,
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    }
+]

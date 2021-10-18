@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Jean multiusos",
+        "categories": ["pantalones", "jeans", "ilusiones"],
+        "details": {
+            "color": "Azul claro",
+            "size": 8,
+            "materials": ["Denim", "Algodón"]
+        },
+        "description": "Denim que hace magia",
+        "price": 89990,
+        "stock": 29,
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    },
+    {
+        "name": "Camiseta Avengers",
+        "categorias": ["camisetas", "superheroes", "rebajas"],
+        "details": {
+            "color": "Amarillo",
+            "size": "S",
+            "materials": ["Algodón"]
+        },
+        "description": "Al infinito y más allá",
+        "price": 30999,
+        "stock": 10,
+        "createdAt": "2021-07-25T10:32:00.000Z"
+    }
+    
+]
