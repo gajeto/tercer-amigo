@@ -62,7 +62,7 @@ app.use(compression());
 
 
 //ROUTING
-app.use('/api/v1/users', userRouter);
+app.use('/api/users', userRouter);
 
 //Handling unkown URL
 app.all('*', (req, res, next) => {

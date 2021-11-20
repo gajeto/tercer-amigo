@@ -26,18 +26,10 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'Email not valid'],
   },
   phone: String,
-  ID: {
-    type: Number,
-    required: true,
-  },
   role: {
     type: String,
-    enum: ['admin', 'vendedor', 'cajero', 'cliente'],
-    default: 'cliente',
-  },
-  shop: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Shop',
+    enum: ['admin', 'voluntario', 'hogar'],
+    default: 'voluntario',
   },
   password: {
     type: String,
