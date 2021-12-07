@@ -2,6 +2,7 @@ const User = require('../models/userModel');
 const catchAsync = require('../helpers/catchAsync');
 const AppError = require('../helpers/appError');
 const factory = require('./handlerFactory');
+const io = require('socket.io');
 
 
 //Only selects the fields that we want to update
@@ -61,6 +62,24 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 exports.setUserId = (req, res, next) => {
   if (req.params.userId) req.query.userB = req.params.userId;
   next();
+};
+
+exports.chat = (req, res, next) => {
+    io.sockets.on('connection', function(socket) {
+    socket.on('username', function(username) {
+        socket.username = username;
+        io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
+    });
+
+    socket.on('disconnect', function(username) {
+        io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+    })
+
+    socket.on('chat_message', function(message) {
+        io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+    });
+
+});
 };
 
 //ADMIN FUNCTIONS

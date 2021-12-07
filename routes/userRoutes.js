@@ -8,7 +8,8 @@ const {
   updateMe,
   deleteUser,
   deleteMe,
-  setUserId
+  setUserId,
+  chat
 } = require('../controllers/userController');
 const {
   protect,
@@ -35,6 +36,8 @@ router.post('/forgot-password', forgotPassword);
 router.post('/confirmation-email', confirmEmail);
 router.patch('/reset-password/:token', resetPassword);
 router.get('/logged', isLoggedIn);
+
+router.get('/chat', chat);
 
 //Protected routes after this middleware
 router.use(protect);
