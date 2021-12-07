@@ -58,6 +58,11 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.setUserId = (req, res, next) => {
+  if (req.params.userId) req.query.userB = req.params.userId;
+  next();
+};
+
 //ADMIN FUNCTIONS
 exports.createUser = factory.createOne(User);
 exports.getAllUsers = factory.getAll(User);

@@ -11,6 +11,8 @@ const cors = require('cors');
 
 //ROUTES
 const userRouter = require('./routes/userRoutes');
+const reviewRouter = require('./routes/reviewRoutes');
+const jobRouter = require('./routes/jobRoutes');
 
 const AppError = require('./helpers/appError');
 const errorHandler = require('./controllers/errorController');
@@ -18,16 +20,40 @@ const errorHandler = require('./controllers/errorController');
 const app = express();
 app.enable('trust-proxy');
 
+app.use(cors({
+  origin: 'http://127.0.0.1:5500'
+}
+));
+
 
 //GLOBAL MIDDLEWARES
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Respond to options request in preflight phase
-app.options('*', cors());
 
 //Secure HTTP headers
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", 'https:', 'http:', 'data:', 'ws:'],
+      baseUri: ["'self'"],
+      fontSrc: ["'self'", 'https:', 'http:', 'data:'],
+      scriptSrc: [
+        "'self'",
+        'https:',
+        'http:',
+        'blob:',
+        'https://*.mapbox.com',
+        'https://js.stripe.com/v3/',
+        'https://*.cloudflare.com',
+        'https://cdnjs.cloudflare.com',
+      ],
+      frameSrc: ["'self'", 'https://js.stripe.com/v3/'],
+      styleSrc: ["'self'", 'https:', 'http:', 'unsafe-inline'],
+      upgradeInsecureRequests: [],
+    },
+  })
+);
 
 //Dev request logging
 app.use(morgan('dev')); //Muestra la petición HTTP junto con tiempo de respuesta
@@ -58,11 +84,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(compression());
-
 
 //ROUTING
-app.use('/api/users', userRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/reviews', reviewRouter);
+app.use('/api/v1/jobs', jobRouter);
 
 //Handling unkown URL
 app.all('*', (req, res, next) => {

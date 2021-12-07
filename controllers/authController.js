@@ -41,6 +41,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
   if (req.body.role !== 'admin') {
     const newUser = await User.create({
       name: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       ID: req.body.ID,
       password: req.body.password,

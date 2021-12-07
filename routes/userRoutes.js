@@ -8,6 +8,7 @@ const {
   updateMe,
   deleteUser,
   deleteMe,
+  setUserId
 } = require('../controllers/userController');
 const {
   protect,
@@ -21,6 +22,8 @@ const {
   confirmEmail,
   isLoggedIn,
 } = require('../controllers/authController');
+
+const jobRouter = require('./jobRoutes');
 
 const router = express.Router();
 
@@ -42,8 +45,9 @@ router.patch('/update-me', updateMe);
 router.delete('/delete-me', deleteMe);
 router.post('/', createUser);
 
-//ADMIN ONLY
-router.use(restrictTo('admin'));
+
+//Nested routes
+router.use('/:userId/jobs', setUserId, jobRouter);
 
 router.route('/').get(getAllUsers); 
 

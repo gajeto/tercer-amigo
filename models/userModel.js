@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please tell us your name'],
   },
+  username: {
+    type: String,
+    required: [true, 'Please tell us your name'],
+  },
   email: {
     type: String,
     required: [true, 'Please provide your email'],
@@ -26,10 +30,26 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'Email not valid'],
   },
   phone: String,
+  address: String,
   role: {
     type: String,
     enum: ['admin', 'voluntario', 'hogar'],
     default: 'voluntario',
+  },
+  rating: {
+    type: Number,
+    default: 4.5,
+  },
+  ratingsAverage: {
+    type: Number,
+    default: 4.5,
+    min: [1, 'Rating must be above 1.0'],
+    max: [5, 'Rating must be below 5.0'],
+    set: (val) => Math.round((val + Number.EPSILON) * 10) / 10,
+  },
+  ratingsQuantity: {
+    type: Number,
+    default: 0,
   },
   password: {
     type: String,
